@@ -36,6 +36,11 @@ h1{
     border: 2px;
     border-radius: 5px;
     font-family: Arial, Helvetica, sans-serif;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: lightblue;
 }
 
 .barra{
@@ -66,6 +71,22 @@ padding: 10px;
 .boton:hover{
     background-color: black;
 }
+
+.par{
+    color: blue;
+}
+
+.impar{
+    color: red;
+}
+
+.par:hover{
+    color: pink;
+}
+
+.impar:hover{
+    color: purple;
+}
   
     </style>
     <body>
@@ -86,21 +107,35 @@ padding: 10px;
 </div>
 
 <div class="creador">
-    <h3>Información del creador</h3>
+    <h3 style="color: white;">Información del creador</h3>
     <p>Nombre: Guadalupe Saraí Jáquez Aguilar</p>
 </div>
 <script>
     const botonAgregar = document.getElementById("agregado");
-    const inputTarea = document.querySelector(".input-tarea");
+    const inputTarea = document.getElementById("input-tarea");
 
+    let contador = 1;
     botonAgregar.addEventListener("click", () => {
-      const tarea = inputTarea.value;
-      const listaTareas = document.querySelector(".lista-tareas");
-      const nuevaTarea = document.createElement("li"); 
-      nuevaTarea.textContent = tarea; 
-      listaTareas.appendChild(nuevaTarea);
-      inputTarea.value = "";
+        const tarea = inputTarea.value;
+        const listaTareas = document.querySelector(".lista-tareas");
+
+        if (tarea.trim() !== "") { 
+            const nuevaTarea = document.createElement("li");
+            nuevaTarea.textContent = tarea;
+            if(contador % 2 == 0){
+                nuevaTarea.classList.add("par")
+        
+            }else{
+                nuevaTarea.classList.add("impar")
+            }
+           
+            listaTareas.appendChild(nuevaTarea);
+            inputTarea.value = ""; 
+        } else {
+
+        }
+        contador += 1;
     });
-  </script>
+</script>
 </body>
 </html>
