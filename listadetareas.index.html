@@ -23,17 +23,6 @@ h1{
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.boton{
-    padding: 10px 20px;
-    font-size: 15px;
-    background-color: black;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
 .tarea{
     padding: 10px;
     margin: 20px;
@@ -46,45 +35,72 @@ h1{
     margin: 20px;
     border: 2px;
     border-radius: 5px;
-    background-color:lightblue;
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.subtitulo{
-background-color: lightblue;
-color: white;
+.barra{
+background-color: white;
+color:lightblue;
 border-radius: 5px;
 font-family: Arial, Helvetica, sans-serif;
-padding: 10px 20px;
 text-align: center;
+padding: 10px;
 }
 
-    </style>
+.subtitulo {
+    padding: 10px;
+    display: flex1;
+    text-align: center;
+    gap: 10px;
+}
 
+.boton{
+background-color:lightblue;
+color:white;
+border-radius: 5px;
+font-family: Arial, Helvetica, sans-serif;
+text-align: center;
+padding: 10px;            
+}
+
+.boton:hover{
+    background-color: black;
+}
+  
+    </style>
+    <body>
+        
 </head>
 <header>
     <h1>LISTA DE TAREAS</h1>
-    <input class="boton" type="button" value="Agregar tarea">
 </header>
 <div class="subtitulo">
-    <input type="text" placeholder="Agregar una tarea">
+    <input type="text" placeholder="Agregar tarea" class="barra"
+     id="input-tarea">
+    <button id="agregado" type="button" class="boton">Agregar</button> 
 </div>
 <div class="tarea">
-    <ol>
-        <li>TAREA 1</li>
-        <li>TAREA 2</li>
-        <li>TAREA 3</li>
-        <li>TAREA 4</li>
-        <li>TAREA 5</li>
-        <LI>TAREA 6</LI>
+    <ol class="lista-tareas">
+      
     </ol>
 </div>
 
 <div class="creador">
-    <h3 style="color: white;">Información del creador</h3>
-    <p>Nombre: Guadalupe Aguilar</p>
-    <p>EMAIL: saraijaquez07@gmail.com</p>
+    <h3>Información del creador</h3>
+    <p>Nombre: Guadalupe Saraí Jáquez Aguilar</p>
 </div>
-<body> 
+<script>
+    const botonAgregar = document.getElementById("agregado");
+    const inputTarea = document.querySelector(".input-tarea");
+
+    botonAgregar.addEventListener("click", () => {
+      const tarea = inputTarea.value;
+      const listaTareas = document.querySelector(".lista-tareas");
+      const nuevaTarea = document.createElement("li"); 
+      nuevaTarea.textContent = tarea; 
+      listaTareas.appendChild(nuevaTarea);
+      inputTarea.value = "";
+    });
+  </script>
 </body>
 </html>
