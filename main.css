@@ -1,0 +1,18 @@
+.tabla_sup{
+width: 80%;
+  border-collapse: collapse;
+  margin: 20px;
+  border: 1px black;
+}
+.tabla_bor{
+    border: 1px solid;
+}
+.tabla_bor:hover{
+    background-color: black;
+}
+.tabla_celda{
+padding: 10px;
+text-align: center;
+border: 1px solid black;
+
+}
